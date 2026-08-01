@@ -1,0 +1,72 @@
+{% load static %}
+
+ <section class="hero" id="hero">
+    <div class="container hero-grid">
+      
+      <!-- Hero Left Text Content -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="fa-solid fa-fire"></i> New Streetwear Drop '26
+        </div>
+        <h1 class="hero-title">
+          REDEFINE YOUR <br><span class="gradient-text">STREETWEAR</span> STANDARD.
+        </h1>
+        <p class="hero-description">
+          Premium 240 GSM 100% Organic Heavyweight Cotton Tees engineered for ultimate drop-shoulder aesthetics and timeless urban comfort.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#shop" class="btn btn-primary" id="heroShopBtn">
+            Explore Collection <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <button class="btn btn-secondary" id="customPrintBtn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Custom Print Lab
+          </button>
+        </div>
+
+        <div class="hero-features">
+          <div class="feature-item">
+            <i class="fa-solid fa-truck-fast icon"></i>
+            <span>Free Express Shipping</span>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-leaf icon"></i>
+            <span>100% Organic Cotton</span>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-arrows-rotate icon"></i>
+            <span>30-Day Easy Returns</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Showcase Card -->
+      <div class="hero-visual">
+        <div class="hero-card" id="heroFeaturedCard">
+          <div class="hero-card-badge">HOT DROP</div>
+          <div class="hero-img-wrapper">
+            <img src={% static 'images/tee1.png' %} id="heroTeeImage" alt="Midnight Acid Wash Oversized Tee">
+          </div>
+          <div class="hero-card-info">
+            <h3 id="heroTeeTitle">Midnight Acid Wash Oversized Tee</h3>
+            <div class="hero-card-price">
+              <span class="current-price">$49.99</span>
+              <span class="old-price">$65.00</span>
+            </div>
+          </div>
+          <div class="hero-quick-controls">
+            <div class="color-swatches">
+              <button class="swatch swatch-black active" data-img={% static 'images/tee1.png' %} title="Black"></button>
+              <button class="swatch swatch-cream" data-img={% static 'images/tee2.png' %} title="Cream"></button>
+              <button class="swatch swatch-grey" data-img={% static 'images/tee3.png' %} title="Acid Grey"></button>
+              <button class="swatch swatch-emerald" data-img={% static 'images/tee4.png' %} title="Emerald"></button>
+            </div>
+            <button class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;" onclick="addToCart(1)">
+              <i class="fa-solid fa-plus"></i> Quick Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>

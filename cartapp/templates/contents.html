@@ -1,0 +1,102 @@
+{% load static %}
+
+ <section class="shop-section" id="shop">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-subtitle">Curated Catalog</span>
+        <h2 class="section-title">Discover Our Premium T-Shirts</h2>
+      </div>
+
+      <!-- Category Filter Pills Bar -->
+      <div class="filter-bar">
+        <div class="category-pills" id="categoryPills">
+          <button class="pill active" data-filter="all">All Tees</button>
+          <button class="pill" data-filter="oversized">Oversized</button>
+          <button class="pill" data-filter="vintage">Vintage Graphic</button>
+          <button class="pill" data-filter="minimalist">Minimalist</button>
+          <button class="pill" data-filter="full-sleeve">Full Sleeve</button>
+          <button class="pill" data-filter="half-sleeve">Half Sleeve</button>
+          <button class="pill" data-filter="sleeveless">Sleeveless</button>
+        </div>
+
+        <div class="filter-options">
+          <select id="sortSelect" class="filter-select" aria-label="Sort products">
+            <option value="popular">Sort by: Popularity</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Main Catalog Grid Layout -->
+      <div class="catalog-grid-wrapper">
+        
+        <!-- Sidebar Filter Drawer/Panel -->
+        <aside class="sidebar-filters" id="sidebarFilters">
+          
+          <!-- Sleeve Type Filter -->
+          <div class="filter-group">
+            <h3 class="filter-group-title">Sleeve Style</h3>
+            <label class="checkbox-label">
+              <input type="checkbox" class="sleeve-checkbox" value="half-sleeve" checked>
+              Half Sleeve
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="sleeve-checkbox" value="full-sleeve" checked>
+              Full Sleeve
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="sleeve-checkbox" value="sleeveless" checked>
+              Sleeveless / Tank
+            </label>
+          </div>
+
+          <!-- Size Filter -->
+          <div class="filter-group">
+            <h3 class="filter-group-title">Select Size</h3>
+            <div class="size-chips">
+              <button class="size-chip active">S</button>
+              <button class="size-chip active">M</button>
+              <button class="size-chip active">L</button>
+              <button class="size-chip active">XL</button>
+              <button class="size-chip">XXL</button>
+            </div>
+          </div>
+
+          <!-- Price Range Slider Filter -->
+          <div class="filter-group">
+            <h3 class="filter-group-title">Max Price: $<span id="priceValue">60</span></h3>
+            <input type="range" id="priceRange" class="price-range" min="20" max="80" value="60">
+            <div class="price-range-labels">
+              <span>$20</span>
+              <span>$80</span>
+            </div>
+          </div>
+
+          <!-- Fabric Weight Filter -->
+          <div class="filter-group">
+            <h3 class="filter-group-title">Fit Type</h3>
+            <label class="checkbox-label">
+              <input type="checkbox" checked> Oversized Drop Shoulder
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" checked> Boxy Streetwear
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" checked> Regular Athletic
+            </label>
+          </div>
+
+        </aside>
+
+        <!-- Products Grid Container -->
+        <main class="products-grid" id="productsGrid">
+          <!-- Dynamic Products injected via JavaScript -->
+        </main>
+
+      </div>
+
+    </div>
+  </section>

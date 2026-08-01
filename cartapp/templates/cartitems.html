@@ -1,0 +1,50 @@
+
+{% load static %}
+
+  <div class="cart-page-shell" id="cartPageShell">
+  <div class="cart-drawer-overlay active" id="cartOverlay">
+    <div class="cart-drawer cart-page-drawer" id="cartDrawer">
+      
+      <div class="cart-header">
+        <h2>Your Shopping Bag (<span id="cartTotalItemsCount">0</span>)</h2>
+        <button class="btn-close-cart" id="closeCartBtn" aria-label="Close cart">&times;</button>
+      </div>
+
+      <div class="free-shipping-bar">
+        <div id="freeShippingText">Add <strong>$25.01</strong> more to unlock FREE Express Shipping!</div>
+        <div class="progress-track">
+          <div class="progress-fill" id="shippingProgressFill"></div>
+        </div>
+      </div>
+
+      <div class="cart-items" id="cartItemsContainer">
+        <!-- Rendered dynamically in JS -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Discount (VIBE20)</span>
+          <span id="cartDiscount" style="color: var(--accent-green);">-$0.00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Estimated Shipping</span>
+          <span id="cartShipping">FREE</span>
+        </div>
+        <div class="cart-summary-row total">
+          <span>Total Price</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+
+        <button class="btn-checkout" id="checkoutBtn" onclick="openCheckoutModal()">
+          Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,758 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thread & Craft - Premium Streetwear, Graphic Tees, Heavyweight Cotton T-Shirts, and Vintage Apparel. High quality 100% Organic Cotton.">
+  <meta name="keywords" content="tshirt shop, streetwear, graphic tees, oversized t-shirt, full sleeve tee, sleeveless tee, organic cotton tees">
+  <meta name="author" content="Thread & Craft">
+  
+  <!-- OpenGraph Meta Tags -->
+  <meta property="og:title" content="Thread & Craft | Premium T-Shirt Store">
+  <meta property="og:description" content="Redefine your streetwear standard with premium heavyweight tees. Free worldwide shipping.">
+  <meta property="og:type" content="website">
+
+  <title>Modern Streetwear & Graphic T-Shirts</title>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  
+  <!-- FontAwesome Icons for UI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+ <!-- Main Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" id="brandLogo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-shirt"></i>
+        </div>
+        <span>THREAD<strong>CRAFT</strong></span>
+      </a>
+
+      <!-- Navigation Links -->
+
+      {% include 'menu.html' %}
+
+      <!-- Search & Nav Action Buttons -->
+      <div class="nav-actions">
+        
+        <!-- Interactive Search Input -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search tees, fits..." aria-label="Search T-shirts">
+        </div>
+
+        <!-- Wishlist Icon -->
+        <button class="icon-btn" id="wishlistBtn" title="Wishlist" aria-label="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <a href="{% url 'cart' %}" class="icon-btn" id="cartToggleBtn" title="Shopping Cart" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge" id="cartCount">0</span>
+        </a>
+
+
+
+      </div>
+
+    </div>
+  </header>
+
+
+
+
+
+
+  <!-- Hero Section -->
+
+
+  {% block banner %}
+
+  {% endblock banner %}
+
+
+
+  <!-- Shop & Filter Section -->
+
+
+{% block content %}
+
+{% endblock content %}
+
+
+
+
+  <!-- Slide-out Cart Drawer Overlay & Panel -->
+
+
+
+{% include 'productdetails.html' %}
+
+  <!-- Checkout Success Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-card" style="max-width: 500px; text-align: center; display: block;">
+      <button class="modal-close" onclick="closeCheckoutModal()">&times;</button>
+      <div style="font-size: 3.5rem; color: var(--accent-green); margin-bottom: 1rem;">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h2 style="font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: 0.5rem;">Order Placed Successfully!</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+        Thank you for shopping with Thread & Craft. Your order <strong>#TC-84920</strong> has been confirmed and is being prepped for dispatch.
+      </p>
+      <button class="btn btn-primary" style="width: 100%;" onclick="closeCheckoutModal()">
+        Back to Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="logo-icon">
+              <i class="fa-solid fa-shirt"></i>
+            </div>
+            <span>THREAD<strong>CRAFT</strong></span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 320px; margin-bottom: 1.5rem;">
+            Elevating everyday casual wear with luxury organic fabrics, architectural oversized cuts, and contemporary street aesthetics.
+          </p>
+          <div style="display: flex; gap: 1rem; font-size: 1.2rem; color: var(--text-muted);">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#">Oversized Heavyweight</a></li>
+            <li><a href="#">Acid Wash Graphic Tees</a></li>
+            <li><a href="#">Minimalist Embroidery</a></li>
+            <li><a href="#">Full Sleeve Crewnecks</a></li>
+            <li><a href="#">Sleeveless Gym Tanks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Shipping & Deliveries</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Store Info</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Thread & Craft</a></li>
+            <li><a href="#">Sustainability Commitment</a></li>
+            <li><a href="#">Custom Bulk Orders</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Store Locator</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 THREAD & CRAFT INC. ALL RIGHTS RESERVED.</span>
+        <div style="display: flex; gap: 1rem; font-size: 1.3rem; color: var(--text-subtle);">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-apple-pay"></i>
+          <i class="fa-brands fa-cc-paypal"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Embedded Interactive Frontend JavaScript -->
+  <script>
+    // Products Master Data Array
+
+    const IMAGE_PATH = "{% static 'images/' %}";
+
+    const productsData = [
+      {
+        id: 1,
+        title: "Midnight Acid Wash Oversized Tee",
+        category: "oversized",
+        sleeve: "half-sleeve",
+        price: 49.99,
+        oldPrice: 65.00,
+        rating: 4.9,
+        reviewsCount: 84,
+        badge: "HOT",
+        badgeClass: "badge-hot",
+        img: IMAGE_PATH + 'tee1.png',
+        description: "Signature 240 GSM drop shoulder oversized tee treated with hand acid-wash for a vintage worn-in aesthetic."
+      },
+      {
+        id: 2,
+        title: "Minimalist Cream Chest Embroidery Tee",
+        category: "minimalist",
+        sleeve: "full-sleeve",
+        price: 39.99,
+        oldPrice: 48.00,
+        rating: 4.8,
+        reviewsCount: 62,
+        badge: "NEW",
+        badgeClass: "badge-new",
+        img: IMAGE_PATH + 'tee2.png',
+        description: "Ultra-soft 100% organic cream cotton featuring subtle high-density chest typography embroidery and full sleeves."
+      },
+      {
+        id: 3,
+        title: "Vintage Sun-Faded Street Graphic Tee",
+        category: "vintage",
+        sleeve: "half-sleeve",
+        price: 44.99,
+        oldPrice: 58.00,
+        rating: 4.9,
+        reviewsCount: 112,
+        badge: "SALE",
+        badgeClass: "badge-sale",
+        img: IMAGE_PATH + 'tee3.png',
+        description: "Heavyweight streetwear tee featuring sun-faded retro graphic prints and reinforced double-stitched collar."
+      },
+      {
+        id: 4,
+        title: "Emerald Luxe Heavyweight Crewneck Tee",
+        category: "minimalist",
+        sleeve: "full-sleeve",
+        price: 54.99,
+        oldPrice: null,
+        rating: 5.0,
+        reviewsCount: 45,
+        badge: "BESTSELLER",
+        badgeClass: "badge-hot",
+        img: IMAGE_PATH + 'tee4.png',
+        description: "Deep forest emerald green luxury heavy cotton crewneck tee engineered for structure and breathability."
+      },
+      {
+        id: 5,
+        title: "Cyberpunk Neon Core Sleeveless Tank",
+        category: "sleeveless",
+        sleeve: "sleeveless",
+        price: 34.99,
+        oldPrice: 42.00,
+        rating: 4.7,
+        reviewsCount: 38,
+        badge: "NEW",
+        badgeClass: "badge-new",
+        img: IMAGE_PATH + 'tee1.png',
+        description: "Deep armhole performance sleeveless tank tee crafted with futuristic reflective chest detailing."
+      },
+      {
+        id: 6,
+        title: "Japanese Modern Kanji Boxy Fit Tee",
+        category: "oversized",
+        sleeve: "half-sleeve",
+        price: 42.99,
+        oldPrice: 50.00,
+        rating: 4.8,
+        reviewsCount: 77,
+        badge: "HOT",
+        badgeClass: "badge-hot",
+        img: IMAGE_PATH + 'tee2.png',
+        description: "Clean Tokyo streetwear aesthetic featuring high-contrast Kanji back print on premium structured cotton."
+      },
+      {
+        id: 7,
+        title: "Abstract Prism Gradient Mesh Tee",
+        category: "sleeveless",
+        sleeve: "sleeveless",
+        price: 37.99,
+        oldPrice: null,
+        rating: 4.6,
+        reviewsCount: 29,
+        badge: null,
+        badgeClass: "",
+        img: IMAGE_PATH + 'tee3.png',
+        description: "Breathable athletic sleeveless tee with high-definition digital gradient prism graphics."
+      },
+      {
+        id: 8,
+        title: "Monochrome Essential Heavy Full Sleeve Tee",
+        category: "full-sleeve",
+        sleeve: "full-sleeve",
+        price: 46.99,
+        oldPrice: 55.00,
+        rating: 4.9,
+        reviewsCount: 93,
+        badge: "POPULAR",
+        badgeClass: "badge-sale",
+        img: IMAGE_PATH + 'tee4.png' ,
+        description: "Everyday luxury full sleeve black tee featuring ribbed cuffs and pre-shrunk organic combed cotton."
+      }
+    ];
+
+    // State Variables
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let wishlist = [];
+    let currentFilter = "all";
+    let maxPriceFilter = 60;
+
+    function saveCart() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // DOM Element References
+    const productsGrid = document.getElementById("productsGrid");
+    const cartToggleBtn = document.getElementById("cartToggleBtn");
+    const cartCount = document.getElementById("cartCount");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const closeCartBtn = document.getElementById("closeCartBtn");
+    const cartItemsContainer = document.getElementById("cartItemsContainer");
+    const cartTotalItemsCount = document.getElementById("cartTotalItemsCount");
+    const cartSubtotal = document.getElementById("cartSubtotal");
+    const cartTotal = document.getElementById("cartTotal");
+    const shippingProgressFill = document.getElementById("shippingProgressFill");
+    const freeShippingText = document.getElementById("freeShippingText");
+    const wishlistCount = document.getElementById("wishlistCount");
+    const searchInput = document.getElementById("searchInput");
+    const priceRange = document.getElementById("priceRange");
+    const priceValue = document.getElementById("priceValue");
+    const sortSelect = document.getElementById("sortSelect");
+
+    // Initialize Application
+    document.addEventListener("DOMContentLoaded", () => {
+      try {
+        const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+        if (Array.isArray(savedCart) && savedCart.length) {
+          cart = savedCart;
+        }
+      } catch (e) {
+        console.warn("Could not load saved cart", e);
+      }
+
+      if (document.getElementById("productsGrid")) {
+        renderProducts(productsData);
+      }
+      if (document.getElementById("cartItemsContainer")) {
+        updateCartUI();
+      }
+      setupEventListeners();
+    });
+
+    // Render Products to Grid
+    function renderProducts(items) {
+      productsGrid.innerHTML = "";
+
+      if (items.length === 0) {
+        productsGrid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-subtle);">
+            <i class="fa-solid fa-shirt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h3>No T-Shirts match your filter criteria.</h3>
+            <p>Try adjusting your search query, price range, or sleeve style filters.</p>
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(product => {
+        const isWishlisted = wishlist.includes(product.id);
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.setAttribute("data-id", product.id);
+
+        card.innerHTML = `
+          <div class="card-top">
+            ${product.badge ? `<span class="card-badge ${product.badgeClass}">${product.badge}</span>` : ""}
+            <button class="btn-wishlist ${isWishlisted ? 'active' : ''}" onclick="toggleWishlist(${product.id}, event)" title="Add to Wishlist">
+              <i class="${isWishlisted ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+            </button>
+            <img src="${product.img}" class="product-card-img" alt="${product.title}">
+            <div class="quick-view-overlay">
+              <button class="btn-quickview" onclick="openQuickView(${product.id})">
+                <i class="fa-solid fa-eye"></i> Quick View
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <span class="card-category">${product.category.replace("-", " ")} &bull; ${product.sleeve.replace("-", " ")}</span>
+            <h3 class="product-title">${product.title}</h3>
+            
+            <div class="rating-row">
+              ${renderStars(product.rating)}
+              <span class="rating-count">(${product.reviewsCount})</span>
+            </div>
+
+            <div class="card-footer">
+              <div class="product-price">
+                <span class="price-current">$${product.price.toFixed(2)}</span>
+                ${product.oldPrice ? `<span class="price-old">$${product.oldPrice.toFixed(2)}</span>` : ""}
+              </div>
+              <button class="btn-add-cart" onclick="addToCart(${product.id})" title="Add to Cart">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        `;
+
+        productsGrid.appendChild(card);
+      });
+    }
+
+    // Render Star Rating Icons
+    function renderStars(rating) {
+      let starsHtml = "";
+      for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(rating)) {
+          starsHtml += `<i class="fa-solid fa-star"></i>`;
+        } else if (i - 0.5 <= rating) {
+          starsHtml += `<i class="fa-solid fa-star-half-stroke"></i>`;
+        } else {
+          starsHtml += `<i class="fa-regular fa-star"></i>`;
+        }
+      }
+      return starsHtml;
+    }
+
+    // Filter Products Logic
+    function applyFilters() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedSleeves = Array.from(document.querySelectorAll('.sleeve-checkbox:checked')).map(cb => cb.value);
+      
+      let filtered = productsData.filter(item => {
+        // Category Pill filter
+        const matchesCategory = (currentFilter === "all") || 
+          (currentFilter === "full-sleeve" && item.sleeve === "full-sleeve") ||
+          (currentFilter === "half-sleeve" && item.sleeve === "half-sleeve") ||
+          (currentFilter === "sleeveless" && item.sleeve === "sleeveless") ||
+          (item.category === currentFilter);
+
+        // Search term
+        const matchesSearch = item.title.toLowerCase().includes(searchTerm) || 
+                              item.description.toLowerCase().includes(searchTerm);
+
+        // Price range
+        const matchesPrice = item.price <= maxPriceFilter;
+
+        // Sleeve checkboxes
+        const matchesSleeve = selectedSleeves.length === 0 || selectedSleeves.includes(item.sleeve);
+
+        return matchesCategory && matchesSearch && matchesPrice && matchesSleeve;
+      });
+
+      // Sorting
+      const sortVal = sortSelect.value;
+      if (sortVal === "low-high") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortVal === "high-low") {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortVal === "rating") {
+        filtered.sort((a, b) => b.rating - a.rating);
+      }
+
+      renderProducts(filtered);
+    }
+
+    // Event Listeners Setup
+    function setupEventListeners() {
+      // Category Pills
+      document.querySelectorAll("#categoryPills .pill").forEach(pill => {
+        pill.addEventListener("click", (e) => {
+          document.querySelectorAll("#categoryPills .pill").forEach(p => p.classList.remove("active"));
+          e.target.classList.add("active");
+          currentFilter = e.target.getAttribute("data-filter");
+          applyFilters();
+        });
+      });
+
+      // Search Input
+      if (searchInput) {
+        searchInput.addEventListener("input", applyFilters);
+      }
+
+      // Price Slider
+      if (priceRange) {
+        priceRange.addEventListener("input", (e) => {
+          maxPriceFilter = parseFloat(e.target.value);
+          priceValue.textContent = maxPriceFilter;
+          applyFilters();
+        });
+      }
+
+      // Sleeve Checkboxes
+      document.querySelectorAll(".sleeve-checkbox").forEach(cb => {
+        cb.addEventListener("change", applyFilters);
+      });
+
+      // Sort Dropdown
+      if (sortSelect) {
+        sortSelect.addEventListener("change", applyFilters);
+      }
+
+      // Cart Drawer Toggle
+      if (cartToggleBtn && cartOverlay) {
+        cartToggleBtn.addEventListener("click", () => cartOverlay.classList.add("active"));
+      }
+      if (closeCartBtn && cartOverlay) {
+        closeCartBtn.addEventListener("click", () => cartOverlay.classList.remove("active"));
+      }
+      if (cartOverlay) {
+        cartOverlay.addEventListener("click", (e) => {
+          if (e.target === cartOverlay) cartOverlay.classList.remove("active");
+        });
+      }
+
+      // Modal Quick View Close
+      const closeModalBtn = document.getElementById("closeModalBtn");
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener("click", () => {
+          document.getElementById("quickViewModal").classList.remove("active");
+        });
+      }
+
+      // Hero Swatch Switcher
+      document.querySelectorAll(".color-swatches .swatch").forEach(swatch => {
+        swatch.addEventListener("click", (e) => {
+          document.querySelectorAll(".color-swatches .swatch").forEach(s => s.classList.remove("active"));
+          swatch.classList.add("active");
+          const newImg = swatch.getAttribute("data-img");
+          if (newImg) {
+            document.getElementById("heroTeeImage").src = newImg;
+          }
+        });
+      });
+
+      // Newsletter Subscribe
+      const subscribeBtn = document.getElementById("subscribeBtn");
+      if (subscribeBtn) {
+        subscribeBtn.addEventListener("click", () => {
+          const email = document.getElementById("newsletterEmail").value;
+          if (email && email.includes("@")) {
+            showToast("🎉 Discount code VIBE20 sent to your email!");
+            document.getElementById("newsletterEmail").value = "";
+          } else {
+          showToast("⚠️ Please enter a valid email address.");
+        }
+      });
+    }
+  }
+
+    // Add To Cart Function
+    function addToCart(productId, size = "M") {
+      const product = productsData.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId && item.size === size);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          qty: 1,
+          size: size,
+          img: product.img
+        });
+      }
+
+      updateCartUI();
+      if (cartOverlay) {
+        cartOverlay.classList.add("active");
+      }
+      
+      // Bump cart icon badge
+      if (cartCount) {
+        cartCount.classList.add("bump");
+        setTimeout(() => cartCount.classList.remove("bump"), 300);
+      }
+
+      showToast(`Added "${product.title}" to your cart!`);
+    }
+
+    // Update Cart UI
+    function updateCartUI() {
+      saveCart();
+
+      const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+      if (cartCount) cartCount.textContent = totalQty;
+      if (cartTotalItemsCount) cartTotalItemsCount.textContent = totalQty;
+      if (cartSubtotal) cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+
+      // Free shipping threshold ($75)
+      const freeShippingThreshold = 75.00;
+      if (shippingProgressFill && freeShippingText) {
+        if (subtotal >= freeShippingThreshold) {
+          shippingProgressFill.style.width = "100%";
+          freeShippingText.innerHTML = "🎉 Congratulations! You unlocked <strong>FREE Express Shipping</strong>!";
+        } else {
+          const remaining = freeShippingThreshold - subtotal;
+          const percent = Math.min((subtotal / freeShippingThreshold) * 100, 100);
+          shippingProgressFill.style.width = `${percent}%`;
+          freeShippingText.innerHTML = `Add <strong>$${remaining.toFixed(2)}</strong> more to unlock FREE Express Shipping!`;
+        }
+      }
+
+      // Calculate Total with 20% Promo code VIBE20
+      const discount = subtotal * 0.20;
+      const cartDiscountEl = document.getElementById("cartDiscount");
+      if (cartDiscountEl) cartDiscountEl.textContent = `-$${discount.toFixed(2)}`;
+      const shipping = subtotal >= freeShippingThreshold || subtotal === 0 ? 0.00 : 4.99;
+      const cartShippingEl = document.getElementById("cartShipping");
+      if (cartShippingEl) cartShippingEl.textContent = shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`;
+      
+      const grandTotal = Math.max(0, subtotal - discount + shipping);
+      if (cartTotal) cartTotal.textContent = `$${grandTotal.toFixed(2)}`;
+
+      // Render Cart Items
+      if (cartItemsContainer) {
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = `
+            <div class="cart-empty-state">
+              <i class="fa-solid fa-bag-shopping icon"></i>
+              <p>Your shopping bag is empty.</p>
+            </div>
+          `;
+        } else {
+          cartItemsContainer.innerHTML = cart.map(item => `
+            <div class="cart-item">
+              <img src="${item.img}" class="cart-item-img" alt="${item.title}">
+              <div class="cart-item-details">
+                <h4 class="cart-item-title">${item.title}</h4>
+                <div class="cart-item-meta">Size: ${item.size} &bull; Color: Default</div>
+                <div class="cart-item-bottom">
+                  <div class="qty-control">
+                    <button class="qty-btn" onclick="updateQty(${item.id}, '${item.size}', -1)">-</button>
+                    <span class="qty-val">${item.qty}</span>
+                    <button class="qty-btn" onclick="updateQty(${item.id}, '${item.size}', 1)">+</button>
+                  </div>
+                  <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                  <button class="btn-remove-item" onclick="removeFromCart(${item.id}, '${item.size}')" title="Remove item">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `).join("");
+        }
+      }
+    }
+
+    // Update Quantity
+    function updateQty(id, size, change) {
+      const item = cart.find(i => i.id === id && i.size === size);
+      if (!item) return;
+
+      item.qty += change;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => !(i.id === id && i.size === size));
+      }
+      updateCartUI();
+    }
+
+    // Remove Item from Cart
+    function removeFromCart(id, size) {
+      cart = cart.filter(i => !(i.id === id && i.size === size));
+      updateCartUI();
+      showToast("Item removed from shopping bag.");
+    }
+
+    // Toggle Wishlist
+    function toggleWishlist(id, event) {
+      event.stopPropagation();
+      const index = wishlist.indexOf(id);
+      if (index > -1) {
+        wishlist.splice(index, 1);
+        showToast("Removed item from wishlist.");
+      } else {
+        wishlist.push(id);
+        showToast("❤️ Added item to your wishlist!");
+      }
+      wishlistCount.textContent = wishlist.length;
+      applyFilters();
+    }
+
+    // Open Quick View Modal
+    function openQuickView(id) {
+      const product = productsData.find(p => p.id === id);
+      if (!product) return;
+
+      document.getElementById("modalImg").src = product.img;
+      document.getElementById("modalTitle").textContent = product.title;
+      document.getElementById("modalPrice").textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById("modalDesc").textContent = product.description;
+      document.getElementById("modalRating").textContent = `(${product.reviewsCount} Customer Reviews)`;
+      
+      const modalAddCartBtn = document.getElementById("modalAddCartBtn");
+      modalAddCartBtn.onclick = () => {
+        addToCart(product.id, "M");
+        document.getElementById("quickViewModal").classList.remove("active");
+      };
+
+      document.getElementById("quickViewModal").classList.add("active");
+    }
+
+    // Open & Close Checkout Modal
+    function openCheckoutModal() {
+      if (cart.length === 0) {
+        showToast("⚠️ Your cart is empty!");
+        return;
+      }
+      if (cartOverlay) {
+        cartOverlay.classList.remove("active");
+      }
+      const checkoutModal = document.getElementById("checkoutModal");
+      if (checkoutModal) {
+        checkoutModal.classList.add("active");
+      }
+    }
+
+    function closeCheckoutModal() {
+      const checkoutModal = document.getElementById("checkoutModal");
+      if (checkoutModal) {
+        checkoutModal.classList.remove("active");
+      }
+      cart = [];
+      localStorage.removeItem("cart");
+      updateCartUI();
+    }
+
+    // Toast Notification System
+    function showToast(message) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> ${message}`;
+      
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(20px)";
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>

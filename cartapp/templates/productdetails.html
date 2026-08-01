@@ -1,0 +1,39 @@
+{% load static %}
+
+<!-- Quick View Product Detail Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-img-container">
+        <img src="" id="modalImg" alt="T-Shirt Detail">
+      </div>
+
+      <div class="modal-info">
+        <h2 class="modal-title" id="modalTitle">Product Title</h2>
+        <div class="rating-row">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span class="rating-count" id="modalRating">(48 Reviews)</span>
+        </div>
+        <div class="modal-price" id="modalPrice">$0.00</div>
+        <p class="modal-desc" id="modalDesc">
+          Crafted from ultra-heavy 240 GSM organic cotton with double-needle stitch detailing and pre-shrunk treatment for long-lasting fit.
+        </p>
+
+        <div class="modal-size-select">
+          <label>Select Size:</label>
+          <div class="size-chips" id="modalSizeChips">
+            <button class="size-chip active">S</button>
+            <button class="size-chip">M</button>
+            <button class="size-chip">L</button>
+            <button class="size-chip">XL</button>
+            <button class="size-chip">XXL</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="modalAddCartBtn" style="width: 100%;">
+          <i class="fa-solid fa-bag-shopping"></i> Add To Bag
+        </button>
+      </div>
+    </div>
+  </div>
